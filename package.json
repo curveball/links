@@ -1,7 +1,7 @@
 {
-  "name": "@curveball/new-package",
+  "name": "@curveball/links",
   "version": "0.0.1",
-  "description": "Description goes here",
+  "description": "Weblinking Middelware for curveball",
   "main": "dist/index.js",
   "scripts": {
     "prepublishOnly": "make build",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/curveball/new-package.git"
+    "url": "git+https://github.com/curveball/links.git"
   },
   "files": [
     "package.json",
@@ -31,11 +31,11 @@
   "author": "Evert Pot (https://evertpot.com/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/curveball/new-package/issues"
+    "url": "https://github.com/curveball/links/issues"
   },
-  "homepage": "https://github.com/curveball/new-package#readme",
+  "homepage": "https://github.com/curveball/links#readme",
   "devDependencies": {
-    "@curveball/core": "^0.11.2",
+    "@curveball/core": "^0.12.0",
     "@types/chai": "^4.2.11",
     "@types/mocha": "^7.0.2",
     "@types/node": "^10.17.17",
@@ -65,5 +65,9 @@
       "js",
       "tsx"
     ]
+  },
+  "dependencies": {
+    "@types/http-link-header": "^1.0.1",
+    "http-link-header": "^1.0.2"
   }
 }
