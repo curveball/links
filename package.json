@@ -1,6 +1,6 @@
 {
   "name": "@curveball/links",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Weblinking Middelware for curveball",
   "main": "dist/index.js",
   "scripts": {
@@ -49,7 +49,7 @@
     "tslint": "^6.1.2",
     "typescript": "^3.9.5"
   },
-  "types": "dist/",
+  "types": "dist/declarations",
   "nyc": {
     "extension": [
       ".ts"
@@ -71,6 +71,5 @@
     "@types/http-link-header": "^1.0.1",
     "hal-types": "^1.0.0",
     "http-link-header": "^1.0.2"
-  },
-  "types": "dist/declarations"
+  }
 }
