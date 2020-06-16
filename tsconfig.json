@@ -5,6 +5,7 @@
         "target": "es2019",
 
         "strict": true,
+        "noFallthroughCasesInSwitch": true,
         "experimentalDecorators": true,
 
         "moduleResolution": "node",
@@ -24,8 +25,7 @@
           "ES2017",
           "ESNext.bigint"
         ],
-        "declaration": true,
-        "skipLibCheck": true
+        "declaration": true
     },
     "include": [
         "src/**/*"
