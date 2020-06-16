@@ -3,7 +3,7 @@ Curveball Links middleware
 
 This [Curveball][1] middleware helps you parse and generate HTTP Weblinks.
 
-Any links passed in a request via the `Link` header will now be exposed in
+Any links passed in a request via the [`Link`][3] header will now be exposed in
 `ctx.request`.  Similarly, if a link was set in `ctx.response.links`, it will
 automatically be encoded as a `Link` header in the HTTP response.
 
@@ -41,6 +41,8 @@ app.use( (ctx: Context) => {
   ctx.response.links.set({ href: 'alternate' , type: 'text/csv', href: '/export.csv'});
 
 });
-
+```
 
 [1]: https://curveballjs.org/
+[2]: https://tools.ietf.org/html/draft-kelly-json-hal-08
+[3]: https://tools.ietf.org/html/rfc8288
