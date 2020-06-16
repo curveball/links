@@ -1,6 +1,12 @@
 Changelog
 =========
 
+0.1.1 (2020-06-16)
+------------------
+
+* Make sure declarations file is included in `dist/`
+
+
 0.1.0 (2020-06-16)
 ------------------
 
