@@ -1,22 +1,46 @@
-Curveball New Package
-=====================
+Curveball Links middleware
+==========================
 
-This repository serves as the skeleton for all new [Curveball][1] packages.
+This [Curveball][1] middleware helps you parse and generate HTTP Weblinks.
+
+Any links passed in a request via the `Link` header will now be exposed in
+`ctx.request`.  Similarly, if a link was set in `ctx.response.links`, it will
+automatically be encoded as a `Link` header in the HTTP response.
+
+Lastly, if the request body was a [HAL][2] object, and it has a `_links`
+property, these links will also be added to `ctx.response.links`.
 
 Installation
 ------------
 
-    npm install @curveball/new-package 
+    npm i @curveball/links
+
+Usage
+-----
 
 
-Getting started
----------------
+```typescript
+import { Application, Context } from '@curveball/core';
+import links from '@curveball/links';
+import bodyParser from '@curveball/bodyparser';
 
-...
 
-API
----
+const app = new Application();
 
-...
+// If you would like to parse HAL links, the bodyParser must be loaded first.
+app.use(bodyParser());
 
-[1]: https://github.com/curveball/
+app.use(links());
+
+app.use( (ctx: Context) => {
+
+  // Read a Link from a HAL body or Link header
+  console.log(ctx.request.links.get('author'));
+
+  // Write a Link header
+  ctx.response.links.set({ href: 'alternate' , type: 'text/csv', href: '/export.csv'});
+
+});
+
+
+[1]: https://curveballjs.org/
