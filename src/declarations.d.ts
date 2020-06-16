@@ -2,13 +2,13 @@ import { Links } from './links';
 
 declare module '@curveball/core' {
 
-  interface Request {
+  interface Request<T> {
 
     links: Links;
 
   }
 
-  interface Response {
+  interface Response<T> {
 
     links: Links;
 

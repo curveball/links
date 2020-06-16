@@ -1,5 +1,6 @@
 import { Link, Links } from './links';
 import LinkHeader from 'http-link-header';
+import { HalResource, HalLink } from 'hal-types';
 
 export function parseLinkHeader(headers: string[]): Link[] {
 
@@ -20,7 +21,6 @@ export function parseLinkHeader(headers: string[]): Link[] {
 export function stringifyLinks(links: Link[] | Links): string[] {
 
   const out = [];
-  const ref = null;
 
   const linksIter = links instanceof Links ? links.getAll() : links;
 
@@ -28,7 +28,7 @@ export function stringifyLinks(links: Link[] | Links): string[] {
   // so we can return an array of Link headers, instead of a single concatenated string.
   for(const link of linksIter) {
 
-    const header = '<' + link.href + '>';
+    let header = '<' + link.href + '>';
     for(const [key, value] of Object.entries(link)) {
       if (key === 'href') continue;
       // @ts-ignore formatAttribute exists, but it's not in DefinitelyTyped
@@ -38,5 +38,33 @@ export function stringifyLinks(links: Link[] | Links): string[] {
   }
 
   return out;
+
+}
+
+export function parseHalLinks(halLinksObj: HalResource['_links']): Link[] {
+
+  const result:Link[] = [];
+
+  for(const [rel, halLinks] of Object.entries(halLinksObj)) {
+
+    if (Array.isArray(halLinks)) {
+      result.push(
+        ...halLinks.map(l => parseHalLink(rel, l) )
+      );
+    } else {
+      result.push(parseHalLink(rel, halLinks));
+    }
+
+  }
+  return result;
+
+}
+
+function parseHalLink(rel: string, halLink: HalLink): Link {
+
+  return {
+    rel,
+    ...halLink
+  };
 
 }
