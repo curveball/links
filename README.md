@@ -38,7 +38,7 @@ app.use( (ctx: Context) => {
   console.log(ctx.request.links.get('author'));
 
   // Write a Link header
-  ctx.response.links.set({ href: 'alternate' , type: 'text/csv', href: '/export.csv'});
+  ctx.response.links.set({ rel: 'alternate' , type: 'text/csv', href: '/export.csv'});
 
 });
 ```
