@@ -41,7 +41,7 @@ describe('Links middleware', () => {
       result = ctx.request.links;
 
     });
-
+    // eslint-disable-next-line no-unused-vars
     const response = await app.subRequest('GET', '/', {
       Link: '</foo>;rel="author"',
     });
@@ -59,6 +59,7 @@ describe('Links middleware', () => {
     const app = new Application();
     app.use(linksMw());
 
+    // eslint-disable-next-line no-unused-vars
     const result: null|Links = null; 
 
     app.use( ctx => {
@@ -105,6 +106,7 @@ describe('Links middleware', () => {
       }
     });
     console.log(request.body);
+    // eslint-disable-next-line no-unused-vars
     const response = await app.subRequest(request);
 
     expect(result!.get('author')).to.eql({
