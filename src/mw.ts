@@ -23,6 +23,6 @@ export default function(): Middleware {
       ctx.response.headers.append('Link', stringifyLinks(ctx.response.links));
     }
 
-  }
+  };
 
 }
