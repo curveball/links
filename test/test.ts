@@ -59,7 +59,7 @@ describe('Links middleware', () => {
     const app = new Application();
     app.use(linksMw());
 
-    let result: null|Links = null; 
+    const result: null|Links = null; 
 
     app.use( ctx => {
 
