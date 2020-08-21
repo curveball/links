@@ -34,7 +34,7 @@ describe('Links middleware', () => {
     const app = new Application();
     app.use(linksMw());
 
-    let result: null|Links = null; 
+    let result: null|Links = null;
 
     app.use( ctx => {
 
@@ -42,7 +42,7 @@ describe('Links middleware', () => {
 
     });
 
-    const response = await app.subRequest('GET', '/', {
+    await app.subRequest('GET', '/', {
       Link: '</foo>;rel="author"',
     });
 
@@ -58,8 +58,6 @@ describe('Links middleware', () => {
 
     const app = new Application();
     app.use(linksMw());
-
-    let result: null|Links = null; 
 
     app.use( ctx => {
 
@@ -85,7 +83,7 @@ describe('Links middleware', () => {
     app.use(bodyParser());
     app.use(linksMw());
 
-    let result: null|Links = null; 
+    let result: null|Links = null;
 
     app.use( ctx => {
 
@@ -104,8 +102,7 @@ describe('Links middleware', () => {
         ]
       }
     });
-    console.log(request.body);
-    const response = await app.subRequest(request);
+    await app.subRequest(request);
 
     expect(result!.get('author')).to.eql({
       href: '/foo',
@@ -121,6 +118,30 @@ describe('Links middleware', () => {
         rel: 'item',
       },
     ]);
+
+  });
+
+  it('should not attempt to parse HAL links if the request body is encoded as a string', async() => {
+
+    const app = new Application();
+    app.use(bodyParser());
+    app.use(linksMw());
+
+    let result: null|Links = null;
+
+    app.use( ctx => {
+
+      result = ctx.request.links;
+
+    });
+
+    const request = new MemoryRequest('GET', '/', {
+      'Content-Type': 'text/plain',
+    }, 'hi');
+    await app.subRequest(request);
+
+    expect(result!.get('author')).to.eql(undefined);
+    expect(result!.getMany('item')).to.eql([]);
 
   });
 });
