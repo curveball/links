@@ -1,6 +1,12 @@
 Changelog
 =========
 
+0.1.2 (2020-08-21)
+------------------
+
+* Links middleware threw an error when `ctx.request.body` was a string.
+
+
 0.1.1 (2020-06-16)
 ------------------
 
