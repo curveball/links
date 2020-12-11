@@ -1,5 +1,5 @@
 import { Link, Links } from './links';
-import LinkHeader from 'http-link-header';
+import * as LinkHeader from 'http-link-header';
 import { HalResource, HalLink } from 'hal-types';
 
 export function parseLinkHeader(headers: string[]): Link[] {
