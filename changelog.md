@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.1.3 (2020-12-10)
+0.1.4 (2020-12-10)
 ------------------
 
 * No longer requires esModuleInterop.
