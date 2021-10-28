@@ -10,8 +10,8 @@ export default function(): Middleware {
 
     ctx.request.links = new Links(linkHeader ? parseLinkHeader([linkHeader]) : []);
 
-    if (ctx.request.body && typeof ctx.request.body === 'object' && '_links' in ctx.request.body) {
-      for(const halLink of parseHalLinks(ctx.request.body._links)) {
+    if (ctx.request.body && typeof ctx.request.body === 'object' && (ctx.request.body as any)._links !== undefined) {
+      for(const halLink of parseHalLinks((ctx.request.body as any)._links)) {
         ctx.request.links.add(halLink);
       }
     }
