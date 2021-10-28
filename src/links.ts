@@ -1,16 +1,16 @@
 export type Link = {
-   href: string,
-   rel: string,
-   title?: string,
-   anchor?: string,
-   hreflang?: string,
-   media?: string,
-   type?: string,
+   href: string;
+   rel: string;
+   title?: string;
+   anchor?: string;
+   hreflang?: string;
+   media?: string;
+   type?: string;
 }
 
 export class Links {
 
-  store: Map<string, Link[]>
+  store: Map<string, Link[]>;
 
   constructor(links?: Link[]) {
 
