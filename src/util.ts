@@ -31,7 +31,6 @@ export function stringifyLinks(links: Link[] | Links): string[] {
     let header = '<' + link.href + '>';
     for(const [key, value] of Object.entries(link)) {
       if (key === 'href') continue;
-      // @ts-expect-error formatAttribute exists, but it's not in DefinitelyTyped
       header+='; ' + LinkHeader.formatAttribute(key, value);
     }
     out.push(header);
