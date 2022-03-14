@@ -36,7 +36,7 @@
   "homepage": "https://github.com/curveball/links#readme",
   "devDependencies": {
     "@curveball/bodyparser": "^0.4.6",
-    "@curveball/core": "^0.16.3",
+    "@curveball/core": "^0.17.0",
     "@types/chai": "^4.2.14",
     "@types/mocha": "^9.0.0",
     "@types/node": "^12.20.36",
