@@ -137,7 +137,7 @@ describe('Links middleware', () => {
 
     });
 
-    const request = new MemoryRequest('GET', '/', {
+    const request = new MemoryRequest('GET', '/', 'http://localhost', {
       'Content-Type': 'text/plain',
     }, 'hi');
     await app.subRequest(request);
