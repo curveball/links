@@ -1,4 +1,4 @@
-import { Application, MemoryRequest } from '@curveball/core';
+import { Application, MemoryRequest } from '@curveball/kernel';
 import linksMw, { Links } from '../src';
 import { expect } from 'chai';
 import bodyParser from '@curveball/bodyparser';
@@ -10,7 +10,7 @@ import bodyParser from '@curveball/bodyparser';
  *
  * Instead, I'm repeating the definitions here.
  */
-declare module '@curveball/core' {
+declare module '@curveball/kernel' {
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   interface Request<T> {
@@ -93,7 +93,7 @@ describe('Links middleware', () => {
 
     });
 
-    const request = new MemoryRequest('GET', '/', {
+    const request = new MemoryRequest('GET', '/', 'http://localhost', {
       'Content-Type': 'application/json',
     }, {
       _links: {
@@ -137,7 +137,7 @@ describe('Links middleware', () => {
 
     });
 
-    const request = new MemoryRequest('GET', '/', {
+    const request = new MemoryRequest('GET', '/', 'http://localhost', {
       'Content-Type': 'text/plain',
     }, 'hi');
     await app.subRequest(request);

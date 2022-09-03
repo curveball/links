@@ -1,6 +1,6 @@
 import { Links } from './links';
 
-declare module '@curveball/core' {
+declare module '@curveball/kernel' {
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   interface Request<T> {

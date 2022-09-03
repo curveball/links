@@ -1,4 +1,4 @@
-import { Middleware, Context } from '@curveball/core';
+import { Middleware, Context } from '@curveball/kernel';
 import { Links } from './links';
 import { parseLinkHeader, stringifyLinks, parseHalLinks } from './util';
 
