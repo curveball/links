@@ -93,7 +93,7 @@ describe('Links middleware', () => {
 
     });
 
-    const request = new MemoryRequest('GET', '/', {
+    const request = new MemoryRequest('GET', '/', 'http://localhost', {
       'Content-Type': 'application/json',
     }, {
       _links: {
