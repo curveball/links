@@ -1,4 +1,4 @@
-import { Link, Links } from './links';
+import { Link, Links } from './links.js';
 import * as LinkHeader from 'http-link-header';
 import { HalResource, HalLink } from 'hal-types';
 

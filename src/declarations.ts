@@ -1,4 +1,4 @@
-import { Links } from './links';
+import { Links } from './links.js';
 
 declare module '@curveball/kernel' {
 

@@ -1,3 +1,3 @@
-import './declarations';
-export { default as default } from './mw';
-export { Links }  from './links';
+import './declarations.js';
+export { default as default } from './mw.js';
+export { Links }  from './links.js';
