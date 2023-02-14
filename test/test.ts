@@ -1,5 +1,5 @@
 import { Application, MemoryRequest } from '@curveball/kernel';
-import linksMw, { Links } from '../src';
+import linksMw, { Links } from '../src/index.js';
 import { expect } from 'chai';
 import bodyParser from '@curveball/bodyparser';
 

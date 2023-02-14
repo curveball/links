@@ -1,6 +1,6 @@
 import { Middleware, Context } from '@curveball/kernel';
-import { Links } from './links';
-import { parseLinkHeader, stringifyLinks, parseHalLinks } from './util';
+import { Links } from './links.js';
+import { parseLinkHeader, stringifyLinks, parseHalLinks } from './util.js';
 
 export default function(): Middleware {
 
