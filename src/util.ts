@@ -1,6 +1,9 @@
 import { Link, Links } from './links.js';
-import * as LinkHeader from 'http-link-header';
+import * as LinkHeaderImp from 'http-link-header';
 import { HalResource, HalLink } from 'hal-types';
+
+/** @ts-expect-error ESM weirdness */
+const LinkHeader = LinkHeaderImp.default ?? LinkHeaderImp;
 
 export function parseLinkHeader(headers: string[]): Link[] {
 
