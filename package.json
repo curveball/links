@@ -44,7 +44,7 @@
     "@curveball/kernel": ">=0.21.0 <1"
   },
   "devDependencies": {
-    "@curveball/bodyparser": "^0.6.1",
+    "@curveball/bodyparser": "^1.0.0",
     "@curveball/kernel": "^0.21.0",
     "@types/chai": "^4.2.14",
     "@types/mocha": "^10.0.1",
