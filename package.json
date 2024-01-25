@@ -1,6 +1,6 @@
 {
   "name": "@curveball/links",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Weblinking Middelware for curveball",
   "type": "module",
   "exports": "./dist/index.js",
