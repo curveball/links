@@ -4,7 +4,7 @@ Changelog
 1.0.1 (2024-01-25)
 ------------------
 
-* The  type is now exported.
+* The `Link` type is now exported.
 
 
 1.0.0 (2024-01-15)
