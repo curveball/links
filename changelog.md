@@ -1,6 +1,14 @@
 Changelog
 =========
 
+1.0.2 (????-??-??)
+------------------
+
+* Updated standard Curveball configuration.
+* Migrated from mocha to node:test.
+* Migrated from chai to node:assert.
+
+
 1.0.1 (2024-01-25)
 ------------------
 
