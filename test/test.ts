@@ -1,7 +1,8 @@
 import { Application, MemoryRequest } from '@curveball/kernel';
 import linksMw, { Links } from '../src/index.js';
-import { expect } from 'chai';
 import bodyParser from '@curveball/bodyparser';
+import { strict as assert } from 'node:assert';
+import { describe, it } from 'node:test';
 
 /**
  *
@@ -49,10 +50,13 @@ describe('Links middleware', () => {
     });
 
 
-    expect(result!.get('author')).to.eql({
-      href: '/foo',
-      rel: 'author',
-    });
+    assert.deepEqual(
+      result!.get('author'),
+      {
+        href: '/foo',
+        rel: 'author',
+      }
+    );
 
   });
 
@@ -73,9 +77,8 @@ describe('Links middleware', () => {
     });
 
     const response = await app.subRequest('GET', '/');
-    expect(response.status).to.eql(200);
-
-    expect(response.headers.get('Link')).to.eql('</foo>; rel=author');
+    assert.equal(response.status, 200);
+    assert.equal(response.headers.get('Link'),'</foo>; rel=author');
 
   });
 
@@ -106,19 +109,24 @@ describe('Links middleware', () => {
     });
     await app.subRequest(request);
 
-    expect(result!.get('author')).to.eql({
-      href: '/foo',
-      rel: 'author',
-    });
-    expect(result!.getMany('item')).to.eql([
+    assert.deepEqual(
+      result!.get('author'),
       {
-        href: '/item/1',
-        rel: 'item',
-      },
-      {
-        href: '/item/2',
-        rel: 'item',
-      },
+        href: '/foo',
+        rel: 'author',
+      }
+    );
+    assert.deepEqual(
+      result!.getMany('item'),
+      [
+        {
+          href: '/item/1',
+          rel: 'item',
+        },
+        {
+          href: '/item/2',
+          rel: 'item',
+        },
     ]);
 
   });
@@ -142,8 +150,9 @@ describe('Links middleware', () => {
     }, 'hi');
     await app.subRequest(request);
 
-    expect(result!.get('author')).to.eql(undefined);
-    expect(result!.getMany('item')).to.eql([]);
+
+    assert.equal(result!.get('author'), undefined);
+    assert.deepEqual(result!.getMany('item'),[]);
 
   });
 });
