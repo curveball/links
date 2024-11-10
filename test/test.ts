@@ -127,7 +127,7 @@ describe('Links middleware', () => {
           href: '/item/2',
           rel: 'item',
         },
-    ]);
+      ]);
 
   });
 
